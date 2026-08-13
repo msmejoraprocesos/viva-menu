@@ -123,7 +123,6 @@
     .item{padding:9px 10px;border-radius:11px;}
     .item h3{font-size:12.5px;}
     .item p{font-size:11px;line-height:1.35;}
-    .drinks-list{grid-template-columns:repeat(2,1fr);}
     .custom-box{padding:16px 16px;}
   }
   .section{display:none;}
@@ -174,6 +173,7 @@
   .juices .item{border-color:#F0B79A;}
   .smoothies .item{border-color:#EFB9CF;}
   .bowls .item{border-color:#D3C0EA;}
+  .coffee .item{border-color:#D9B98A;}
   .item h3{
     margin:0 0 3px;
     font-size:13.5px;
@@ -184,28 +184,12 @@
   .juices .item h3{color:#B14E24;}
   .smoothies .item h3{color:#8F2255;}
   .bowls .item h3{color:#4E2A73;}
+  .coffee .item h3{color:#6B4226;}
   .item p{
     margin:0;
     font-size:11.5px;
     color:var(--ink-soft);
     line-height:1.4;
-  }
-
-  .drinks-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-    gap:8px;
-  }
-  .drink-pill{
-    background:var(--brown-light);
-    border:2px solid #DCB98A;
-    border-radius:10px;
-    padding:9px 10px;
-    font-size:12px;
-    font-weight:600;
-    color:#5B3A1E;
-    text-align:center;
-    box-shadow:0 2px 6px rgba(0,0,0,.05);
   }
 
   .custom-box{
@@ -371,7 +355,7 @@
   }
   #app-view footer{padding-bottom:90px;}
 
-  .item, .drink-pill{
+  .item{
     cursor:pointer;
     user-select:none;
     -webkit-tap-highlight-color:transparent;
@@ -399,12 +383,6 @@
     justify-content:center;
     line-height:1;
   }
-  .drink-pill.selected{
-    background:var(--pink);
-    border-color:var(--pink);
-    color:#fff;
-  }
-
   .frame-edge{
     position:fixed;
     z-index:-2;
@@ -562,16 +540,16 @@
       </div>
       <h2>Coffee &amp; drinks</h2>
     </div>
-    <div class="drinks-list">
-      <div class="drink-pill">Hot coffee</div>
-      <div class="drink-pill">Cafe Americano</div>
-      <div class="drink-pill">Cafe latte</div>
-      <div class="drink-pill">Espresso</div>
-      <div class="drink-pill">Cappuccino</div>
-      <div class="drink-pill">Mocha frappuccino</div>
-      <div class="drink-pill">Caramel frappuccino</div>
-      <div class="drink-pill">Hot chocolate</div>
-      <div class="drink-pill">Iced tea</div>
+    <div class="grid">
+      <div class="item"><h3>Hot coffee</h3></div>
+      <div class="item"><h3>Cafe Americano</h3></div>
+      <div class="item"><h3>Cafe latte</h3></div>
+      <div class="item"><h3>Espresso</h3></div>
+      <div class="item"><h3>Cappuccino</h3></div>
+      <div class="item"><h3>Mocha frappuccino</h3></div>
+      <div class="item"><h3>Caramel frappuccino</h3></div>
+      <div class="item"><h3>Hot chocolate</h3></div>
+      <div class="item"><h3>Iced tea</h3></div>
     </div>
   </section>
 
@@ -656,7 +634,7 @@
     updateWaLink(currentCategory);
   }
 
-  document.querySelectorAll('.item, .drink-pill').forEach(el => {
+  document.querySelectorAll('.item').forEach(el => {
     el.setAttribute('tabindex', '0');
     el.setAttribute('role', 'button');
     el.setAttribute('aria-pressed', 'false');
